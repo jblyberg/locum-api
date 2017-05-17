@@ -1,0 +1,25 @@
+{
+  "name": "jblyberg/locum-api",
+  "type": "library",
+  "description": "Provides an abstraction layer to the Locum API",
+  "keywords": ["http", "rest", "web service", "curl", "client", "HTTP client", "locum"],
+  "homepage": "https://github.com/jblyberg/locum-api",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "John Blyberg",
+      "email": "john@blyberg.net",
+      "homepage": "https://github.com/jblyberg"
+    }
+  ],
+  "require": {
+    "php": ">=5.5",
+    "guzzlehttp/guzzle": "~6",
+    "nesbot/carbon": "~1.20"
+  },
+  "autoload": {
+    "psr-4": {
+      "Locum\\API\\": "src/"
+    }
+  }
+}
