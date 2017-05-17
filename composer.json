@@ -12,6 +12,7 @@
       "homepage": "https://github.com/jblyberg"
     }
   ],
+  "minimum-stability": "dev",
   "require": {
     "php": ">=5.5",
     "guzzlehttp/guzzle": "~6",
