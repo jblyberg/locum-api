@@ -40,7 +40,7 @@ class LocumGuzzle
         return $base_uri;
     }
 
-    public function getQueryRaw($apiMethod, $parameters = array())
+    public function getQuery($apiMethod, $parameters = array(), $json = true)
     {
         try {
             $response = $this->client->get(
@@ -49,23 +49,14 @@ class LocumGuzzle
             )->getBody();
         } catch (RequestException $exception) {
             return array('exception' => $exception);
+        }
+
+        if ($json) {
+            return json_decode($response, true);
         }
 
         return $response;
-    }
 
-    public function getQuery($apiMethod, $parameters = array())
-    {
-        try {
-            $response = $this->client->get(
-                $apiMethod,
-                ['query' => $parameters]
-            )->getBody();
-        } catch (RequestException $exception) {
-            return array('exception' => $exception);
-        }
-
-        return json_decode($response, true);
     }
 
     public function getConcurrent($promisesArray)

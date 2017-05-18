@@ -490,6 +490,8 @@ class LocumAPI
         return $this->guzzle->getConcurrent($promisesArray);
     }
 
+    /* ------------------- Covercache and Recommendation Server Methods ------------------- */
+
     /**
      * Returns a work cover
      *
@@ -554,6 +556,22 @@ class LocumAPI
         );
 
         return $this->guzzle->postQuery('/works/' . $work_id . '/override/', $postVars);
+    }
+
+    /* ------------------- Overdrive API Methods ------------------- */
+
+    /**
+     * Returns the full preview script for a given $providerID
+     *
+     * @param $providerID
+     * @return array|mixed|\Psr\Http\Message\StreamInterface
+     */
+    public function getPreviewScript($providerID)
+    {
+        $parameters = ['crid' => $providerID];
+
+        return $this->guzzle->getQuery('/media/sample-embed/', $parameters, false);
+
     }
 
 }
