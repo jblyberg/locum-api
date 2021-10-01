@@ -21,6 +21,7 @@ class LocumGuzzle
         $this->client = new Client([
             'base_uri' => $base_uri,
             'timeout'  => $timeout,
+            'verify'   => false,
         ]);
     }
 
